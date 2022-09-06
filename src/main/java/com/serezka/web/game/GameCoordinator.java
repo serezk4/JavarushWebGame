@@ -53,7 +53,7 @@ public class GameCoordinator {
 
     public static Map.Entry<String, List<Dialog>> getNextDialog(User user, String predAnsw, boolean updateUserDialog) {
         if (predAnsw.equals("new")) {
-            user.setUserDialog(textEngine.getRootDialog());
+            if (updateUserDialog) user.setUserDialog(textEngine.getRootDialog());
             return new AbstractMap.SimpleEntry<>(user.getUserDialog().getAnswer(), user.getUserDialog().getOptions());
         }
 

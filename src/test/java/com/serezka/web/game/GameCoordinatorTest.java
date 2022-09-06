@@ -62,18 +62,14 @@ class GameCoordinatorTest {
         if (root.getOptions().isEmpty()) return true;
 
         boolean res = true;
+
+
         GameCoordinator.getUserById(userId).setUserDialog(root);
         for (Dialog rootOption : root.getOptions()) {
             Map.Entry<String, List<Dialog>> newOptions = GameCoordinator.getNextDialog(GameCoordinator.getUserById(userId), rootOption.getQuestion(), false);
             assertNotNull(newOptions);
 
-            System.out.println("ROOT: " + rootOption.getQuestion());
-
-            for (Dialog newOption : newOptions.getValue()) {
-                System.out.println(" -> NEW: " + newOption.getQuestion());
-
-                res = res && checksGameCoordinator(newOption, userId);
-            }
+            for (Dialog newOption : newOptions.getValue()) res = res && checksGameCoordinator(newOption, userId);
 
         }
 
