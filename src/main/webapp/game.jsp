@@ -79,7 +79,7 @@
     <FORM ACTION="game" METHOD="POST" style="height: available; width: 500px">
         <p><select size="4" name="answer">
             <option style="font-size: 30px; font-family: 'Roboto', sans-serif; font-weight: bold; color: black; "
-                    disabled><%= q %>
+                    disabled><%= name + ", " + q %>
             </option>
             <%= sb.toString() %>
         </select></p>
