@@ -63,7 +63,7 @@
             return;
         }
 
-        Map.Entry<String, List<Dialog>> e = GameCoordinator.getNextDialog(GameCoordinator.getUserById((long) session.getAttribute("id")), prevAnswer);
+        Map.Entry<String, List<Dialog>> e = GameCoordinator.getNextDialog(GameCoordinator.getUserById((long) session.getAttribute("id")), prevAnswer, true);
         StringBuilder sb = new StringBuilder();
 
         String q = e.getKey();

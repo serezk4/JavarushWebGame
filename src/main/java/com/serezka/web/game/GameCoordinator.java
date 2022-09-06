@@ -51,7 +51,7 @@ public class GameCoordinator {
         return textEngine.getBackstory();
     }
 
-    public static Map.Entry<String, List<Dialog>> getNextDialog(User user, String predAnsw) {
+    public static Map.Entry<String, List<Dialog>> getNextDialog(User user, String predAnsw, boolean updateUserDialog) {
         if (predAnsw.equals("new")) {
             user.setUserDialog(textEngine.getRootDialog());
             return new AbstractMap.SimpleEntry<>(user.getUserDialog().getAnswer(), user.getUserDialog().getOptions());
@@ -64,7 +64,7 @@ public class GameCoordinator {
 
         if (selectedDialog.isEmpty()) return null;
 
-        user.setUserDialog(selectedDialog.get());
+        if (updateUserDialog) user.setUserDialog(selectedDialog.get());
         return new AbstractMap.SimpleEntry<>(selectedDialog.get().getAnswer(), selectedDialog.get().getOptions());
     }
 }
